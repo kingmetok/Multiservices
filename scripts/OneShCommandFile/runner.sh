@@ -23,6 +23,8 @@ function clientsRunner() {
   done
 }
 
+cd ../../
+
 eurekaRunner
 zuulRunner
 clientsRunner
