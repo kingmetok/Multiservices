@@ -9,6 +9,7 @@ import feign.hystrix.HystrixFeign;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @FeignClient(name = "country-dao-service")
@@ -24,7 +25,17 @@ public interface CountryServiceFeignClient {
                     .encoder(new GsonEncoder())
                     .decoder(new GsonDecoder())
                     .target(CountryServiceFeignClient.class, "http://localhost:9006/",
-                            (FallbackFactory<CountryServiceFeignClient>) throwable -> null);
+                            (FallbackFactory<CountryServiceFeignClient>) throwable -> new CountryServiceFeignClient() {
+                                @Override
+                                public List<Country> getCountries() {
+                                    return new ArrayList<>();
+                                }
+
+                                @Override
+                                public Country getCountry(final long id) {
+                                    return null;
+                                }
+                            });
         }
     }
 
