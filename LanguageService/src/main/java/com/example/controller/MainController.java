@@ -1,4 +1,4 @@
-package com.example.team.controller;
+package com.example.controller;
 
 import com.example.team.entity.Language;
 import com.example.team.feign.LanguageServiceFeignClient;

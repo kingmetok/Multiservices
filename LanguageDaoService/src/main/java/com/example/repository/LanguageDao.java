@@ -1,4 +1,4 @@
-package com.example.team.repository;
+package com.example.repository;
 
 import com.example.team.entity.Language;
 import org.springframework.data.repository.CrudRepository;

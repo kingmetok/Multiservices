@@ -1,4 +1,4 @@
-package com.example.team.feign;
+package com.example.feign;
 
 import com.example.team.entity.Language;
 import feign.RequestLine;
@@ -14,6 +14,10 @@ import java.util.List;
 public interface LanguageServiceFeignClient {
 
     class FeignHolder {
+
+        private FeignHolder() {
+        }
+
         public static LanguageServiceFeignClient create() {
             return HystrixFeign.builder()
                     .encoder(new GsonEncoder())
