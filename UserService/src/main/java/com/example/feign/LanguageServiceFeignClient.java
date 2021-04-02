@@ -29,5 +29,5 @@ public interface LanguageServiceFeignClient {
     }
 
     @RequestLine("GET /language")
-    List<Language> getAllTeams();
+    List<Language> getAllLanguages();
 }

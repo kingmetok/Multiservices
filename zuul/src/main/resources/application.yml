@@ -13,7 +13,7 @@ eureka:
 zuul:
   routes:
     language-service:
-      path: /languages/**
+      path: /service/**
       service-id: language-service
 
   ignored-services: /*

@@ -1,4 +1,4 @@
-insert into multiservice.public.language ("name")
+insert into language ("name")
 values ('C#'),
        ('Java'),
        ('Python'),
