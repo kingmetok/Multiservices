@@ -1,0 +1,47 @@
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+  config:
+    activate:
+      on-profile: default
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://localhost:${server.port}/eureka/
+    initial-instance-info-replication-interval-seconds: 10
+
+---
+spring:
+  config:
+    activate:
+      on-profile: first-eureka-server
+  application:
+    name: eureka-server-first
+server:
+  port: 9000
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:${server.port}/eureka/
+
+---
+spring:
+  config:
+    activate:
+      on-profile: second-eureka-server
+  application:
+    name: eureka-server-second
+server:
+  port: 9001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      default-zone: http://localhost:${server.port}/eureka/
