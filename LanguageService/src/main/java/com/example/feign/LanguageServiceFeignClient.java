@@ -1,6 +1,6 @@
 package com.example.feign;
 
-import com.example.team.entity.Language;
+import com.example.entity.Language;
 import feign.RequestLine;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
